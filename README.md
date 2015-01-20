@@ -1,5 +1,5 @@
-# getting-cleaning-data-project
-Repository of codes and instructions for the "Getting and Cleaning Data" Coursera course project.
+## getting-cleaning-data-project
+#### Repository of codes and instructions for the "Getting and Cleaning Data" Coursera course project.
 -------------------------------------------
 
 1. How to run the analysis?
