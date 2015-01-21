@@ -1,19 +1,19 @@
 library(data.table)
 # read-in test, training, activities, and subject data sets
-testData <- read.table("./UCI-HAR-Dataset/test/X_test.txt",header=FALSE)
-testData_act <- read.table("./UCI-HAR-Dataset/test/y_test.txt",header=FALSE)
-testData_sub <- read.table("./UCI-HAR-Dataset/test/subject_test.txt",header=FALSE)
-trainData <- read.table("./UCI-HAR-Dataset/train/X_train.txt",header=FALSE)
-trainData_act <- read.table("./UCI-HAR-Dataset/train/y_train.txt",header=FALSE)
-trainData_sub <- read.table("./UCI-HAR-Dataset/train/subject_train.txt",header=FALSE)
+testData <- read.table("./UCI HAR Dataset/test/X_test.txt",header=FALSE)
+testData_act <- read.table("./UCI HAR Dataset/test/y_test.txt",header=FALSE)
+testData_sub <- read.table("./UCI HAR Dataset/test/subject_test.txt",header=FALSE)
+trainData <- read.table("./UCI HAR Dataset/train/X_train.txt",header=FALSE)
+trainData_act <- read.table("./UCI HAR Dataset/train/y_train.txt",header=FALSE)
+trainData_sub <- read.table("./UCI HAR Dataset/train/subject_train.txt",header=FALSE)
 
 # Assign descriptive activity names to activities inside the test and train data sets
-activities <- read.table("./UCI-HAR-Dataset/activity_labels.txt",header=FALSE,colClasses="character")
+activities <- read.table("./UCI HAR Dataset/activity_labels.txt",header=FALSE,colClasses="character")
 testData_act$V1 <- factor(testData_act$V1,levels=activities$V1,labels=activities$V2)
 trainData_act$V1 <- factor(trainData_act$V1,levels=activities$V1,labels=activities$V2)
 
 # Label the data sets' headers with descriptive variable names
-features <- read.table("./UCI-HAR-Dataset/features.txt",header=FALSE,colClasses="character")
+features <- read.table("./UCI HAR Dataset/features.txt",header=FALSE,colClasses="character")
 colnames(testData)<-features$V2
 colnames(trainData)<-features$V2
 colnames(testData_act)<-c("Activity")
