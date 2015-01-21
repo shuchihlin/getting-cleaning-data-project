@@ -3,7 +3,7 @@
 -------------------------------------------
 
 1. How to run the analysis?
-   * Ensure the R-script "run_analysis.R" and the data folder ("UCI-HAR-Dataset") are in the same folder (notice the "-" in the data folder name to allow working on Windows PCs)
+   * Ensure the R-script "run_analysis.R" and the data folder ("UCI HAR Dataset" - download and extracted from "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip") are located in the same folder.
    * Set the current working directory to the folder where the R-script and the data reside
    * Run the code by "source" in the R-script
 
