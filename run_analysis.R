@@ -13,6 +13,7 @@ testData_act$V1 <- factor(testData_act$V1,levels=activities$V1,labels=activities
 trainData_act$V1 <- factor(trainData_act$V1,levels=activities$V1,labels=activities$V2)
 
 # Label the data sets' headers with descriptive variable names
+# and select the variables of mean and standard deviation ones
 features <- read.table("./UCI HAR Dataset/features.txt",header=FALSE,colClasses="character")
 colsWeWant <- grep(".*mean.*|.*Mean.*|.*std.*|.*Std*", features[,2])
 colnames(testData)<-features$V2
@@ -22,8 +23,9 @@ colnames(trainData_act)<-c("Activity")
 colnames(testData_sub)<-c("Subject")
 colnames(trainData_sub)<-c("Subject")
 
-# Merge test and training sets into a joint data set along with
-# their corresponding activities and subjects
+# Extracts only the measurements on the mean and standard deviation 
+# for each measurement. Merge test and training sets into a joint data 
+# set along with their corresponding activities and subjects
 testData<-testData[,colsWeWant]
 trainData<-trainData[,colsWeWant]
 testData<-cbind(testData,testData_act)
@@ -32,14 +34,8 @@ trainData<-cbind(trainData,trainData_act)
 trainData<-cbind(trainData,trainData_sub)
 jointData<-rbind(testData,trainData)
 
-# Extracts only the measurements on the mean and 
-# standard deviation for each measurement
-jointData_mean<-sapply(jointData,mean,na.rm=TRUE)
-jointData_sd<-sapply(jointData,sd,na.rm=TRUE)
-
 # From the joint data set, to create a second, independent tidy data set 
-# with the average of each variable for each activity and each subject
+# with the average of each variable for each activity and each subject. Write to file "tidyData.txt"
 dt<- data.table(jointData)
 tidyData<-dt[,lapply(.SD,mean),by="Activity,Subject"]
-write.table(tidyData,file="tidyData.txt", row.name=FALSE)
-
+write.table(tidyData,file="tidyData.txt",row.name=FALSE)
