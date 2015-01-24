@@ -8,7 +8,7 @@
    * Run the code by "source" in the R-script
 
 2. Output:
-   * Upon successful execution, the "tidyData" object will contain an independent tidy data set with the average of each variable for each activity and each subject
+   * Upon successful execution, "tidyData.txt" is created under the current directory which contains an independent tidy data set with the average of each variable for each activity and each subject
 
 3. The R-script "run_analysis.R" does the following steps in sequence:
    * It first reads in test, training, activities, and subject data sets
