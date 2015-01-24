@@ -6,12 +6,12 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 2. The following provides an explanation of each column of the final tidy dataset:
    1. Overall the "tidyData" has:
      * 180 rows (each row represnts the average of measurements from 1 of 30 volunteers doing 1 of 6 activities) 
-     * 563 columns ("Activity" and "Subject" along with the corresponding 561 variables as listed in "features.txt" of the source data)
+     * 88 columns ("Activity" and "Subject" along with the corresponding 86 variables as listed in "features.txt" of the source data which have embedded "Mean|mean|Std|std" in their names)
    2. Activity:
      * the activity being measured (one of "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING" activities)
    3. Subject:
      * the number which tracks the volunteer (1..30)
-   4. 561 columns as listed in source data's "features.txt":
+   4. 86 columns as listed in source data's "features.txt":
       - the single letter prefix indicates the domain (t: time, f: frequency)
       - the second component of the name indicates whether the measure applies to the subject's body or to the component due to gravity
       - the third component of the name indicates the type of measure
