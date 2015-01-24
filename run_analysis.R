@@ -41,5 +41,5 @@ jointData_sd<-sapply(jointData,sd,na.rm=TRUE)
 # with the average of each variable for each activity and each subject
 dt<- data.table(jointData)
 tidyData<-dt[,lapply(.SD,mean),by="Activity,Subject"]
-write.table(tidyData,file="tidyData.txt")
+write.table(tidyData,file="tidyData.txt", row.name=FALSE)
 
