@@ -11,10 +11,11 @@
    * Upon successful execution, "tidyData.txt" is created under the current directory which contains an independent tidy data set with the average of each variable for each activity and each subject
 
 3. The R-script "run_analysis.R" does the following steps in sequence:
-   * It first reads in test, training, activities, and subject data sets
+   * Read-in test, training, activities, and subject data sets
    * Assign descriptive activity names to activities inside the test and train data sets
-   * Label the data sets' headers with descriptive variable names
-   * Merge test and training sets into a joint data set along with their corresponding activities and subjects
-   * Extracts only the measurements on the mean and standard deviation for each measurement
-   * From the joint data set, to create a second, independent tidy data set with the average of each variable by each activity and each subject
+   * Label the data sets' headers with descriptive variable names and select the variables of mean and standard deviation ones
+   * Extracts only the measurements on the mean and standard deviation for each measurement. Merge test and training sets into a joint data set along with their corresponding activities and subjects
+   * From the joint data set, to create a second, independent tidy data set with the average of each variable for each activity and each subject. Then write to file "todyData.txt" in current directory
+
+
 
