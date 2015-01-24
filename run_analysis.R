@@ -14,6 +14,7 @@ trainData_act$V1 <- factor(trainData_act$V1,levels=activities$V1,labels=activiti
 
 # Label the data sets' headers with descriptive variable names
 features <- read.table("./UCI HAR Dataset/features.txt",header=FALSE,colClasses="character")
+colsWeWant <- grep(".*mean.*|.*Mean.*|.*std.*|.*Std*", features[,2])
 colnames(testData)<-features$V2
 colnames(trainData)<-features$V2
 colnames(testData_act)<-c("Activity")
@@ -23,6 +24,8 @@ colnames(trainData_sub)<-c("Subject")
 
 # Merge test and training sets into a joint data set along with
 # their corresponding activities and subjects
+testData<-testData[,colsWeWant]
+trainData<-trainData[,colsWeWant]
 testData<-cbind(testData,testData_act)
 testData<-cbind(testData,testData_sub)
 trainData<-cbind(trainData,trainData_act)
@@ -38,3 +41,5 @@ jointData_sd<-sapply(jointData,sd,na.rm=TRUE)
 # with the average of each variable for each activity and each subject
 dt<- data.table(jointData)
 tidyData<-dt[,lapply(.SD,mean),by="Activity,Subject"]
+write.table(tidyData,file="tidyData.txt")
+
